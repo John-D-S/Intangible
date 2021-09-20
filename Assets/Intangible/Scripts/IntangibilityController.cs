@@ -14,14 +14,18 @@ public class IntangibilityController : MonoBehaviour
     
     private void Start()
     {
+        //initialise components
         thisCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //get the initial color
         spriteStartColor = spriteRenderer.color;
+        //set the player static gameobject to be used by other scripts.
         player = gameObject;
     }
 
     private void Update()
     {
+        //enable the collider and make the color transparent if left mouse button is pressed.
         thisCollider.enabled = !Input.GetMouseButton(0);
         spriteRenderer.color = Input.GetMouseButton(0) ? IntangibleColor : spriteStartColor;
     }

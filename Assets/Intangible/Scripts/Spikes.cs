@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
+	/// <summary>
+	/// this will reload the current level
+	/// </summary>
 	private void ReloadLevel()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
@@ -12,6 +15,7 @@ public class Spikes : MonoBehaviour
 	
 	private void OnCollisionEnter2D(Collision2D _collision)
 	{
+		// if the player collides, reload the level
 		if(_collision.collider.gameObject == IntangibilityController.player)
 		{
 			ReloadLevel();
@@ -20,6 +24,7 @@ public class Spikes : MonoBehaviour
 
 	private void OnCollisionStay2D(Collision2D _collision)
 	{
+		// if the player collides, reload the level
 		if(_collision.collider.gameObject == IntangibilityController.player)
 		{
 			ReloadLevel();
